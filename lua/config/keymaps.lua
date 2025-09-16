@@ -17,3 +17,10 @@ vim.keymap.set("n", "<leader>D", "<cmd>lua vim.lsp.buf.declaration()<cr>", { des
 
 vim.keymap.set("n", "<C-s>", ":w<cr>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "Close buffer" })
+
+vim.keymap.set("n", "<leader>j", function()
+  local line_number = vim.fn.input("type number of line: ")
+  if line_number and tonumber(line_number) then
+    vim.cmd(line_number)
+  end
+end, { noremap = true, silent = true, desc = "Jump for inserted line" })
