@@ -3,6 +3,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.lang.java" },
     { import = "plugins" },
+    { import = "lsp" },
   },
   defaults = {
     lazy = false,
