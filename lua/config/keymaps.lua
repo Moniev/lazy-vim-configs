@@ -13,28 +13,34 @@ local keymaps = {
     { "<leader>D", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to declaration" } },
     { "<C-s>", ":w<cr>", { desc = "Save file" } },
     { "<leader>q", ":q<cr>", { desc = "Close buffer" } },
+    {
+      "<leader>/",
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      { desc = "Toggle comment" },
+    },
   },
 
   v = {
     { "<Tab>", ">gv", opts },
     { "<S-Tab>", "<gv", opts },
+    {
+      "<leader>/",
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      { desc = "Toggle comment" },
+    },
   },
 
   i = {
     { "<S-Tab>", "<C-d>", opts },
+    { "<C-/>", "<Esc><cmd>lua require('Comment.api').toggle.linewise.current()<CR>a", { desc = "Toggle comment" } },
   },
 }
 
-for mode, maps in pairs(keymaps) do
-  for _, mapping in ipairs(maps) do
-    if #mapping == 3 then
-      map(mode, mapping[1], mapping[2], mapping[3])
-    else
-      local key = mapping[1]
-      local rhs = mapping[2]
-      local custom_opts = mapping[3]
-      local final_opts = vim.tbl_deep_extend("force", {}, opts, custom_opts)
-      map(mode, key, rhs, final_opts)
-    end
+for mode, maps_table in pairs(keymaps) do
+  for _, mapping in ipairs(maps_table) do
+    local m_opts = mapping[3] or {}
+    map(mode, mapping[1], mapping[2], m_opts)
   end
 end
