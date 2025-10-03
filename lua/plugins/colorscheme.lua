@@ -24,7 +24,6 @@ return {
           Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
         },
       })
-      vim.cmd.colorscheme("vscode")
     end,
   },
   {
@@ -38,7 +37,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "vscode",
     },
   },
 }
