@@ -32,13 +32,13 @@ return {
     lazy = true,
     opts = {
       transparent = true,
-      style = "moon",
+      style = "night",
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vscode",
+      colorscheme = "tokyonight-night",
     },
   },
 }
