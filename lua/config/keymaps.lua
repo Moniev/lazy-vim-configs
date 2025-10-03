@@ -20,6 +20,16 @@ local keymaps = {
       end,
       { desc = "Toggle comment" },
     },
+
+    { "<A-a>",     "<C-w>h", { desc = "Go to left window" } },
+    { "<A-s>",     "<C-w>j", { desc = "Go to window below" } },
+    { "<A-w>",     "<C-w>k", { desc = "Go to window above" } },
+    { "<A-d>",     "<C-w>l", { desc = "Go to right window" } },
+
+    { "<A-Left>",  "<C-w>h", { desc = "Go to left window" } },
+    { "<A-Down>",  "<C-w>j", { desc = "Go to window below" } },
+    { "<A-Up>",    "<C-w>k", { desc = "Go to window above" } },
+    { "<A-Right>", "<C-w>l", { desc = "Go to right window" } },
   },
 
   v = {
