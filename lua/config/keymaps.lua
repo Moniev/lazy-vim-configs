@@ -32,6 +32,15 @@ local keymaps = {
     { "<A-Down>", "<C-w>j", { desc = "Go to window below" } },
     { "<A-Up>", "<C-w>k", { desc = "Go to window above" } },
     { "<A-Right>", "<C-w>l", { desc = "Go to right window" } },
+
+    { "<leader>gs", "<cmd>G<cr>", { desc = "Git status" } },
+    { "<leader>gb", "<cmd>Gblame<cr>", { desc = "Git blame" } },
+    { "<leader>gd", "<cmd>Gdiffsplit<cr>", { desc = "Git diff" } },
+    { "<leader>ga", "<cmd>Gwrite<cr>", { desc = "Git add (current buffer)" } },
+    { "<leader>gA", "<cmd>G add --all<cr>", { desc = "Git add all" } },
+    { "<leader>gc", "<cmd>Gcommit<cr>", { desc = "Git commit" } },
+    { "<leader>gp", "<cmd>Gpush<cr>", { desc = "Git push" } },
+    { "<leader>gl", "<cmd>Gpull<cr>", { desc = "Git pull" } },
   },
 
   v = {
