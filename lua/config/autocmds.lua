@@ -43,6 +43,14 @@ local autocmds = {
     end,
     desc = "Trim trailing whitespace on save",
   },
+  {
+    event = "FileType",
+    pattern = "gitcommit",
+    callback = function()
+      vim.diagnostic.enable(false)
+    end,
+    desc = "Disable diagnostics for git commit messages",
+  },
 }
 
 for _, autocmd in ipairs(autocmds) do
