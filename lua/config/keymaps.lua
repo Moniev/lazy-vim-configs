@@ -37,9 +37,10 @@ local keymaps = {
     { "<leader>gb", "<cmd>Gblame<cr>", { desc = "Git blame" } },
     { "<leader>gd", "<cmd>Gdiffsplit<cr>", { desc = "Git diff" } },
     { "<leader>ga", "<cmd>Gwrite<cr>", { desc = "Git add (current buffer)" } },
+    { "<leader>gc", "<cmd>G commit<cr>", { desc = "Git commit" } },
     { "<leader>gA", "<cmd>G add --all<cr>", { desc = "Git add all" } },
-    { "<leader>gp", "<cmd>G push<cr>", { desc = "Git push" } },
-    { "<leader>gl", "<cmd>G pull<cr>", { desc = "Git pull" } },
+    { "<leader>gP", "<cmd>G push<cr>", { desc = "Git push" } },
+    { "<leader>gL", "<cmd>G pull<cr>", { desc = "Git pull" } },
   },
 
   v = {
