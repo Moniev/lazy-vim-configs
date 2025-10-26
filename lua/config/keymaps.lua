@@ -41,6 +41,11 @@ local keymaps = {
     { "<leader>gA", "<cmd>G add --all<cr>", { desc = "Git add all" } },
     { "<leader>gP", "<cmd>G push<cr>", { desc = "Git push" } },
     { "<leader>gL", "<cmd>G pull<cr>", { desc = "Git pull" } },
+    { "<leader>gS", "<cmd>G stash<cr>", { desc = "Git stash" } },
+    { "<leader>gsp", "<cmd>G stash pop<cr>", { desc = "Git stash pop" } },
+    { "<leader>gsa", "<cmd>G stash apply<cr>", { desc = "Git stash apply" } },
+    { "<leader>gR", "<cmd>G restore<cr>", { desc = "Git restore" } },
+    { "<leader>gl", "<cmd>G stash list<cr>", { desc = "Git stash list" } },
   },
 
   v = {
