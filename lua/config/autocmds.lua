@@ -25,6 +25,24 @@ local autocmds = {
     end,
     desc = "Check for file changes on disk",
   },
+  {
+    event = "BufWritePre",
+    callback = function(args)
+      local clients = vim.lsp.get_active_clients({ bufnr = args.buf })
+      local has_formatter = false
+      for _, client in ipairs(clients) do
+        if client.supports_method("textDocument/formatting") then
+          has_formatter = true
+          break
+        end
+      end
+
+      if has_formatter then
+        vim.lsp.buf.format({ async = false, timeout_ms = 1000, bufnr = args.buf })
+      end
+    end,
+    desc = "Format file before saving (if formatter attached)",
+  },
 }
 
 for _, autocmd in ipairs(autocmds) do
