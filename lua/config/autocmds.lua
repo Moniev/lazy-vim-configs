@@ -9,13 +9,6 @@ local autocmds = {
     desc = "Format file before saving",
   },
   {
-    event = "BufWritePre",
-    callback = function()
-      vim.cmd("%s/\\s\\+$//e")
-    end,
-    desc = "Trim trailing whitespace on save",
-  },
-  {
     event = { "CursorHold", "CursorHoldI" },
     callback = function()
       local f = vim.fn.filereadable(vim.api.nvim_buf_get_name(0))
@@ -28,10 +21,10 @@ local autocmds = {
   {
     event = "BufWritePre",
     callback = function(args)
-      local clients = vim.lsp.get_active_clients({ bufnr = args.buf })
+      local clients = vim.lsp.get_clients({ bufnr = args.buf })
       local has_formatter = false
       for _, client in ipairs(clients) do
-        if client.supports_method("textDocument/formatting") then
+        if client:supports_method("textDocument/formatting") then
           has_formatter = true
           break
         end
@@ -41,7 +34,14 @@ local autocmds = {
         vim.lsp.buf.format({ async = false, timeout_ms = 1000, bufnr = args.buf })
       end
     end,
-    desc = "Format file before saving (if formatter attached)",
+    desc = "Format file before saving",
+  },
+  {
+    event = "BufWritePre",
+    callback = function()
+      vim.cmd("%s/\\s\\+$//e")
+    end,
+    desc = "Trim trailing whitespace on save",
   },
 }
 
