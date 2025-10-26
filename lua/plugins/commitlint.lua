@@ -23,7 +23,9 @@ return {
           languages = {
             gitcommit = {
               {
-                lintCommand = "commitlint --config " .. os.getenv("HOME") .. "/.commitlintrc.json --verbose",
+                lintCommand = 'sh -c \'awk "/^#/ {exit} {print}" | commitlint --config '
+                  .. os.getenv("HOME")
+                  .. "/.commitlintrc.json --verbose'",
                 lintStdin = true,
                 lintFormats = { "%m" },
               },
