@@ -11,10 +11,15 @@ local keymaps = {
     { "<leader>a", "ggVG", opts },
     { "<leader>d", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to definition" } },
     { "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "Find references" } },
+
     { "<leader>h", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Show hover info" } },
+
     { "<leader>D", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to declaration" } },
     { "<C-s>", ":w<cr>", { desc = "Save file" } },
-    { "<leader>q", ":q<cr>", { desc = "Close buffer" } },
+    { "<leader>q", ":q<cr>", { desc = "Close buffers" } },
+
+    { "<leader>c", ":bd<cr>", { desc = "Close currently open buffer (bd)" } },
+
     {
       "<leader><S-c>",
       function()
