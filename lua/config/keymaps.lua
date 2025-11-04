@@ -40,7 +40,6 @@ local keymaps = {
     { "<A-Right>", "<C-w>l", { desc = "Go to right window" } },
 
     { "<leader>gs", "<cmd>G<cr>", { desc = "Git status" } },
-    { "<leader>gb", "<cmd>Gblame<cr>", { desc = "Git blame" } },
     { "<leader>gd", "<cmd>Gdiffsplit<cr>", { desc = "Git diff" } },
     { "<leader>ga", "<cmd>Gwrite<cr>", { desc = "Git add (current buffer)" } },
     { "<leader>gc", "<cmd>G commit<cr>", { desc = "Git commit" } },
