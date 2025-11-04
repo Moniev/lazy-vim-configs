@@ -8,6 +8,7 @@ local keymaps = {
   n = {
     { "<Tab>", ">>", opts },
     { "<S-Tab>", "<<", opts },
+
     { "<leader>a", "ggVG", opts },
     { "<leader>d", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to definition" } },
     { "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "Find references" } },
@@ -44,12 +45,15 @@ local keymaps = {
     { "<leader>ga", "<cmd>Gwrite<cr>", { desc = "Git add (current buffer)" } },
     { "<leader>gc", "<cmd>G commit<cr>", { desc = "Git commit" } },
     { "<leader>gA", "<cmd>G add --all<cr>", { desc = "Git add all" } },
+    { "<leader>gr", "<cmd>GDelete<cr>", { desc = "Git remove (current file)" } },
+    { "<leader>gU", "<cmd>G add -u<cr>", { desc = "Git add -u" } },
+    { "<leader>gu", "<cmd>G reset HEAD %<cr>", { desc = "Git unstage (current file)" } },
     { "<leader>gP", "<cmd>G push<cr>", { desc = "Git push" } },
     { "<leader>gL", "<cmd>G pull<cr>", { desc = "Git pull" } },
     { "<leader>gS", "<cmd>G stash<cr>", { desc = "Git stash" } },
     { "<leader>gsp", "<cmd>G stash pop<cr>", { desc = "Git stash pop" } },
     { "<leader>gsa", "<cmd>G stash apply<cr>", { desc = "Git stash apply" } },
-    { "<leader>gR", "<cmd>G restore<cr>", { desc = "Git restore" } },
+    { "<leader>gR", "<cmd>G restore --all<cr>", { desc = "Git restore" } },
     { "<leader>gl", "<cmd>G stash list<cr>", { desc = "Git stash list" } },
   },
 
