@@ -45,9 +45,13 @@ local keymaps = {
     { "<leader>gc", "<cmd>G commit<cr>", { desc = "Git commit" } },
     { "<leader>gA", "<cmd>G add --all<cr>", { desc = "Git add all" } },
     { "<leader>gr", "<cmd>GDelete<cr>", { desc = "Git remove (current file)" } },
+    { "<leader>gM", "<cmd>G switch main <cr>", { desc = "Git switch main" } },
+    { "<leader>gRm", "<cmd>G rebase origin/main <cr>", { desc = "Git rebase main" } },
     { "<leader>gU", "<cmd>G add -u<cr>", { desc = "Git add -u" } },
     { "<leader>gu", "<cmd>G reset HEAD %<cr>", { desc = "Git unstage (current file)" } },
     { "<leader>gP", "<cmd>G push<cr>", { desc = "Git push" } },
+    { "<leader>gPP", "<cmd>G push -force-with-lease<cr>", { desc = "Git push" } },
+
     { "<leader>gL", "<cmd>G pull<cr>", { desc = "Git pull" } },
     { "<leader>gS", "<cmd>G stash<cr>", { desc = "Git stash" } },
     { "<leader>gsp", "<cmd>G stash pop<cr>", { desc = "Git stash pop" } },
