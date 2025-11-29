@@ -50,7 +50,8 @@ local keymaps = {
     { "<leader>gU", "<cmd>G add -u<cr>", { desc = "Git add -u" } },
     { "<leader>gu", "<cmd>G reset HEAD %<cr>", { desc = "Git unstage (current file)" } },
     { "<leader>gP", "<cmd>G push<cr>", { desc = "Git push" } },
-    { "<leader>gPP", "<cmd>G push -force-with-lease<cr>", { desc = "Git push" } },
+    { "<leader>gPP", "<cmd>G push --force-with-lease<cr>", { desc = "Git push force with lease" } },
+    { "<leader>gPPP", "<cmd>G push --force<cr>", { desc = "Git push with force`" } },
 
     { "<leader>gL", "<cmd>G pull<cr>", { desc = "Git pull" } },
     { "<leader>gS", "<cmd>G stash<cr>", { desc = "Git stash" } },
