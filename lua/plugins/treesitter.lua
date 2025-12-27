@@ -7,6 +7,8 @@ return {
       opts.indent = { enable = true, disable = { "yaml", "ruby" } }
       opts.ensure_installed = {
         "bash",
+        "fish",
+        "hyprlang",
         "embedded_template",
         "go",
         "html",
