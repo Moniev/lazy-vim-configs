@@ -62,7 +62,7 @@ local keymaps = {
     { "<leader>gu", "<cmd>G reset HEAD %<cr>", { desc = "Git unstage (current file)" } },
     { "<leader>gP", "<cmd>G push<cr>", { desc = "Git push" } },
     { "<leader>gPP", "<cmd>G push --force-with-lease<cr>", { desc = "Git push force with lease" } },
-    { "<leader>gPPP", "<cmd>G push --force<cr>", { desc = "Git push with force`" } },
+    { "<leader>gPPP", "<cmd>G push --force<cr>", { desc = "Git push with force" } },
     { "<leader>go", ":G checkout ", { desc = "Git checkout (existing)" } },
     { "<leader>gL", "<cmd>G pull<cr>", { desc = "Git pull" } },
     { "<leader>gS", "<cmd>G stash<cr>", { desc = "Git stash" } },
@@ -70,6 +70,10 @@ local keymaps = {
     { "<leader>gSa", "<cmd>G stash apply<cr>", { desc = "Git stash apply" } },
     { "<leader>gR", "<cmd>G restore --all<cr>", { desc = "Git restore" } },
     { "<leader>gl", "<cmd>G stash list<cr>", { desc = "Git stash list" } },
+
+    { "<leader>E", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Show line diagnostics" } },
+    { "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Go to previous diagnostic" } },
+    { "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Go to next diagnostic" } },
   },
 
   v = {
