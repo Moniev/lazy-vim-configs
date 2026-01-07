@@ -28,16 +28,48 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
     opts = {
-      transparent = true,
       style = "night",
+      transparent = not vim.g.neovide,
+
+      on_highlights = function(hl)
+        local p = require("config.palette")
+
+        local my_bg = vim.g.neovide and p.primary or p.none
+
+        hl.NeoTreeNormal = { bg = my_bg }
+        hl.NeoTreeNormalNC = { bg = my_bg }
+        hl.NeoTreeEndOfBuffer = { bg = my_bg }
+        hl.NeoTreeWinSeparator = { fg = p.primary, bg = my_bg }
+
+        hl.TelescopeNormal = { bg = my_bg }
+        hl.TelescopeBorder = { bg = my_bg, fg = p.primary }
+        hl.TelescopePromptNormal = { bg = my_bg }
+        hl.TelescopePromptBorder = { bg = my_bg, fg = p.primary }
+        hl.TelescopeTitle = { bg = p.info, fg = p.primary }
+
+        hl.NormalFloat = { bg = my_bg }
+        hl.FloatBorder = { bg = my_bg, fg = p.primary }
+
+        hl.Normal = { bg = my_bg }
+        hl.NormalNC = { bg = my_bg }
+        hl.SignColumn = { bg = my_bg }
+        hl.EndOfBuffer = { bg = my_bg }
+
+        hl.Cursor = { bg = p.info, fg = p.primary }
+        hl.TermCursor = { bg = p.info, fg = p.primary }
+        hl.LineNr = { fg = p.grey, bg = my_bg }
+
+        hl.Visual = { bg = p.secondary, fg = p.white }
+      end,
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "tokyonight",
     },
   },
 }
