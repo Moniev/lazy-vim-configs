@@ -25,7 +25,7 @@ local keymaps = {
       "<leader>cn",
       ":CarbonNow<cr>",
       mode = "v",
-      desc = "Carbon Now (visual)",
+      desc = "Carbon Now (normal, whole file)",
     },
 
     {
@@ -91,6 +91,7 @@ local keymaps = {
       "<esc><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>",
       { desc = "Toggle comment" },
     },
+    { "<leader>cn", ":CarbonNow<cr>", { desc = "Carbon Now (marked)" } },
   },
 
   i = {
