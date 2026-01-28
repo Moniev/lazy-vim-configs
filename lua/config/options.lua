@@ -1,7 +1,15 @@
-vim.opt.shortmess:append("I")
+local p = require("config.palette")
+
+vim.opt.shortmess:append("IA")
+vim.opt.swapfile = false
+
 vim.o.shell = "fish"
+
+local font_name = "JetBrainsMonoNL Nerd Font"
+local font_size = ":h12"
+
 if vim.fn.has("gui_running") then
-  vim.opt.guifont = { "JetBrainsMonoNL Nerd Font", ":h12" }
+  vim.opt.guifont = { font_name, font_size }
 end
 
 vim.filetype.add({
@@ -9,29 +17,29 @@ vim.filetype.add({
 })
 
 if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMonoNL Nerd Font:h12"
+  vim.o.guifont = font_name .. font_size
 
-  vim.g.neovide_padding_top = 25
-  vim.g.neovide_padding_bottom = 25
-  vim.g.neovide_padding_left = 25
-  vim.g.neovide_padding_right = 25
+  local pad = 25
+  vim.g.neovide_padding_top = pad
+  vim.g.neovide_padding_bottom = pad
+  vim.g.neovide_padding_left = pad
+  vim.g.neovide_padding_right = pad
 
   vim.g.neovide_opacity = 0.78
-
   vim.g.neovide_refresh_rate = 60
   vim.g.neovide_cursor_animation_length = 0.06
   vim.g.neovide_cursor_trail_size = 0.4
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.g.neovide_cursor_vfx_opacity = 200.0
 
-  vim.cmd([[
-        highlight Normal guibg=#292a2bc7
-        highlight EndOfBuffer guibg=#292a2bc7
-        highlight SignColumn guibg=#292a2bc7
-        highlight LineNr guibg=#292a2bc7
+  local bg_hex = p.bg_night .. "c7"
 
-        highlight Cursor guibg=#599ba7 guifg=#292a2b
-    ]])
+  vim.api.nvim_set_hl(0, "Normal", { guibg = bg_hex })
+  vim.api.nvim_set_hl(0, "EndOfBuffer", { guibg = bg_hex })
+  vim.api.nvim_set_hl(0, "SignColumn", { guibg = bg_hex })
+  vim.api.nvim_set_hl(0, "LineNr", { guibg = bg_hex, fg = p.slate })
+
+  vim.api.nvim_set_hl(0, "Cursor", { guibg = p.info, guifg = p.bg_night })
 
   vim.g.neovide_remember_window_size = true
   vim.o.winblend = 0
