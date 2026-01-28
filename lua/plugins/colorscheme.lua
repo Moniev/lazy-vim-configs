@@ -8,7 +8,6 @@ return {
 
       local c = require("vscode.colors").get_colors()
       require("vscode").setup({
-
         transparent = true,
         italic_comments = true,
         italic_inlayhints = true,
@@ -42,7 +41,8 @@ return {
         hl.NeoTreeNormal = { bg = my_bg }
         hl.NeoTreeNormalNC = { bg = my_bg }
         hl.NeoTreeEndOfBuffer = { bg = my_bg }
-        hl.NeoTreeWinSeparator = { fg = p.primary, bg = my_bg }
+        hl.NeoTreeWinSeparator = { fg = p.primary, bg = p.none }
+        hl.WinSeparator = { fg = p.primary, bg = p.none }
 
         hl.TelescopeNormal = { bg = my_bg }
         hl.TelescopeBorder = { bg = my_bg, fg = p.primary }

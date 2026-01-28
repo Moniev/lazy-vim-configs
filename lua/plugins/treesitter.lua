@@ -5,27 +5,23 @@ return {
     opts = function(_, opts)
       opts.endwise = { enable = true }
       opts.indent = { enable = true, disable = { "yaml", "ruby" } }
-      opts.ensure_installed = {
-        "bash",
-        "fish",
-        "hyprlang",
-        "embedded_template",
-        "go",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "ruby",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-      }
+
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, {
+          "bash",
+          "fish",
+          "hyprlang",
+          "embedded_template",
+          "go",
+          "html",
+          "javascript",
+          "ruby",
+          "tsx",
+          "typescript",
+          "yaml",
+          "vimdoc",
+        })
+      end
     end,
   },
 }

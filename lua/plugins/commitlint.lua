@@ -1,20 +1,21 @@
 return {
   "neovim/nvim-lspconfig",
-
   dependencies = {
     {
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
       opts = function(_, opts)
         opts.ensure_installed = opts.ensure_installed or {}
-        table.insert(opts.ensure_installed, "efm")
+        vim.list_extend(opts.ensure_installed, { "efm" })
       end,
     },
   },
-
   opts = {
     servers = {
       efm = {
         filetypes = { "gitcommit" },
+        root_dir = function()
+          return vim.fn.getcwd()
+        end,
         init_options = {
           documentFormatting = false,
           documentRangeFormatting = false,
@@ -23,9 +24,9 @@ return {
           languages = {
             gitcommit = {
               {
-                lintCommand = 'sh -c \'awk "/^#/ {exit} {print}" | commitlint --config '
-                  .. os.getenv("HOME")
-                  .. "/.commitlintrc.json --verbose'",
+                lintCommand = 'sh -c \'awk "/^#/ {exit} {print}" | commitlint --config ' .. vim.fn.expand(
+                  "~/.commitlintrc.json"
+                ) .. " --verbose'",
                 lintStdin = true,
                 lintFormats = { "%m" },
               },
