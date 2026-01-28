@@ -22,6 +22,13 @@ local keymaps = {
     { "<leader>c", ":bd<cr>", { desc = "Close currently open buffer (bd)" } },
 
     {
+      "<leader>cn",
+      ":CarbonNow<cr>",
+      mode = "v",
+      desc = "Carbon Now (visual)",
+    },
+
+    {
       "<leader><S-c>",
       function()
         require("Comment.api").toggle.blockwise.current()

@@ -32,37 +32,46 @@ return {
     opts = {
       style = "night",
       transparent = not vim.g.neovide,
-
       on_highlights = function(hl)
         local p = require("config.palette")
 
-        local my_bg = vim.g.neovide and p.primary or p.none
+        local my_bg = vim.g.neovide and p.bg_night or p.none
+
+        hl.Normal = { bg = my_bg }
+        hl.NormalNC = { bg = my_bg }
+        hl.SignColumn = { bg = my_bg }
+        hl.EndOfBuffer = { bg = my_bg, fg = my_bg }
+        hl.NormalFloat = { bg = my_bg }
+        hl.FloatBorder = { bg = my_bg, fg = p.primary }
 
         hl.NeoTreeNormal = { bg = my_bg }
         hl.NeoTreeNormalNC = { bg = my_bg }
-        hl.NeoTreeEndOfBuffer = { bg = my_bg }
+        hl.NeoTreeEndOfBuffer = { bg = my_bg, fg = my_bg }
         hl.NeoTreeWinSeparator = { fg = p.primary, bg = p.none }
         hl.WinSeparator = { fg = p.primary, bg = p.none }
 
         hl.TelescopeNormal = { bg = my_bg }
         hl.TelescopeBorder = { bg = my_bg, fg = p.primary }
         hl.TelescopePromptNormal = { bg = my_bg }
-        hl.TelescopePromptBorder = { bg = my_bg, fg = p.primary }
-        hl.TelescopeTitle = { bg = p.info, fg = p.primary }
+        hl.TelescopePromptBorder = { bg = my_bg, fg = p.highlight }
+        hl.TelescopeTitle = { bg = p.primary, fg = p.bg_night }
 
-        hl.NormalFloat = { bg = my_bg }
-        hl.FloatBorder = { bg = my_bg, fg = p.primary }
-
-        hl.Normal = { bg = my_bg }
-        hl.NormalNC = { bg = my_bg }
-        hl.SignColumn = { bg = my_bg }
-        hl.EndOfBuffer = { bg = my_bg }
-
-        hl.Cursor = { bg = p.info, fg = p.primary }
-        hl.TermCursor = { bg = p.info, fg = p.primary }
-        hl.LineNr = { fg = p.grey, bg = my_bg }
-
+        hl.Cursor = { bg = p.info, fg = p.bg_night }
+        hl.TermCursor = { bg = p.info, fg = p.bg_night }
         hl.Visual = { bg = p.secondary, fg = p.white }
+        hl.LineNr = { fg = p.slate, bg = my_bg }
+        hl.CursorLineNr = { fg = p.primary, bold = true }
+
+        hl.Keyword = { fg = p.token.keyword, italic = true }
+        hl.Function = { fg = p.token.function_ }
+        hl.String = { fg = p.token.string }
+        hl.Number = { fg = p.token.number }
+        hl.Comment = { fg = p.token.comment, italic = true }
+        hl.Operator = { fg = p.token.operator }
+        hl.Type = { fg = p.token.class }
+        hl.Identifier = { fg = p.token.variable }
+        hl.Tag = { fg = p.token.tag }
+        hl.Delimiter = { fg = p.token.punctuation }
       end,
     },
   },
